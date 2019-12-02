@@ -5,11 +5,11 @@ import java.util.function.BiFunction;
 public class EllipticCurveUtils {
 
     private BigInteger[] u = {BigInteger.ZERO, BigInteger.ONE};
-    BigInteger two = new BigInteger("2");
-    BigInteger three = new BigInteger("3");
+    private BigInteger two = new BigInteger("2");
+    private BigInteger three = new BigInteger("3");
 
     // Implementation of problem 1
-    BigInteger[] mul(BigInteger[] a1, BigInteger[] a2, BigInteger d, BigInteger p) {
+    private BigInteger[] mul(BigInteger[] a1, BigInteger[] a2, BigInteger d, BigInteger p) {
         BigInteger x1 = a1[0], y1 = a1[1], x2 = a2[0], y2 = a2[1];
 
         BigInteger x1y2 = x1.multiply(y2).mod(p);
@@ -109,7 +109,7 @@ public class EllipticCurveUtils {
         return new BigInteger[]{m, new BigInteger(Integer.toString(k))};
     }
 
-    // Implementation of problem 4
+    // Implementation of problem 4 check method
     private Integer check(BigInteger[] a, BigInteger d, BigInteger p, BigInteger n) throws Exception {
 
         BigInteger m = new BigInteger(String.valueOf((int) (10000 * Math.random()))).mod(n);
@@ -128,7 +128,7 @@ public class EllipticCurveUtils {
         }
     }
 
-
+    // Implementation of problem 4 driver method
     void driver(BigInteger[] a, BigInteger d, BigInteger p, BigInteger n, int N) throws Exception {
         int sum = 0;
         for (int i = 0; i < N; i++) {
